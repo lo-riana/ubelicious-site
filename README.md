@@ -12,10 +12,16 @@ Ubelicious est une plateforme web dédiée à la découverte de l'ube violet (ig
 Le projet intègre une partie **front-end** et une partie **back-end** complète.
 
 ## Déploiement
-Le site est déployé via [Render](https://render.com), avec une application Node.js/Express.js pour le serveur et l'accès à la base de données.
 
-Lien vers le site :  
-**(lien Render)**
+Le projet est déployé sur deux plateformes complémentaires :
+
+- Vercel pour la version optimisée du site vitrine (HTML, CSS, JS minifiés), afin de maximiser les performances écologiques.
+- Render pour démontrer le bon fonctionnement des fonctionnalités dynamiques (connexion à la base de données SQLite).
+
+### Liens :
+- Site optimisé (Vercel) ➔ https://ubelicious-site.vercel.app
+- Démonstration avec base de données (Render) ➔ https://greenit-hryk.onrender.com
+
 
 ## Remarques techniques
 - Ce dépôt contient à la fois :
@@ -34,7 +40,7 @@ Lien vers le site :
 
 ## Structure du projet
 ```
-/ (racine)
+/
 |-- app.js
 |-- database.js
 |-- package.json
@@ -104,27 +110,85 @@ Lien vers le site :
   - Site adapté pour mobile, tablette et desktop.
 
 ## Conventions de contribution
-- **Branches de travail :**
-  - `main` : branche principale (stabilisée)
-  - `loriana` : développements réalisés par Loriana
-  - `laura` :  développements réalisés par Laura
+- **Branche de travail :**
+  - `main` : branche principale
 
-- **Conventions de commit :**
-  - `feat:` ajout de fonctionnalité
-  - `fix:` correction de bug
-  - `docs:` mise à jour de la documentation
-  - `style:` changements purement esthétiques
+- **Convention de commit :**
+    - `git clone <url-du-depot>`: récupération d'un dépôt distant en local
+    - `git add <fichier>`: ajout de fichiers au staging area
+    - `git add .`: ajout de tous les fichiers motifiés au staging area
+    - `git commit -m "feat: ton message de commit"`: enregistrement des modifications avec un message
+    - `git push origin <nom-de-la-branche>`: envoi des commits locaux vers le dépôt distant
+    - `git pull origin <nom-de-la-branche>`: récupération et fusion des modifications du dépôt distant
+    - `git fetch origin`: récupération des modifications du dépôt distant sans fusion
+    - `git checkout <nom-de-la-branche>`: basculement ou création d'une branche / restauration d'un fichier
+    - `git checkout -b <nouvelle-branche>`: créer et aller directement sur une nouvelle branche
 
 - **Procédure :**
   - Travailler sur sa propre branche.
   - Faire des pull requests vers `main` après relecture.
+ 
+  ## Tests de fonctionnalités
+
+Des tests de fonctionnalités ont été réalisés avec Cypress pour garantir le bon fonctionnement du site.
+Tous les tests ont été validés sur Firefox, Internet Explorer et Electron.
+
+- **Pages testées :**
+
+  - Page d'accueil (`accueil.cy.js`)
+
+    - Affichage du carrousel de recettes
+    - Gestion de l'affichage du bouton d'ajout (selon rôle admin)
+    - Gestion du menu hamburger
+
+  - Page À propos (`apropos.cy.js`)
+
+    - Présence du texte principal
+    - Gestion du menu hamburger
+
+  - Page Création de compte (`compte.cy.js`)
+
+    - Présence des champs du formulaire d'inscription
+    - Affichage de la force du mot de passe en direct
+    - Navigation entre inscription et connexion
+    - Gestion du menu hamburger
+
+  - Page de connexion (`connexion.cy.js`)
+
+    - Présence des formulaires utilisateur et admin
+    - Affichage/masquage du mot de passe pour chaque formulaire
+    - Navigation entre connexion et création de compte
+    - Gestion du menu hamburger
+
+  - Header général (`header.cy.js`)
+
+    - Redirection dynamique selon l'état de connexion de l'utilisateur
+    - Affichage/masquage du bouton de déconnexion
+
+  - Page Mes recommandations (`mes_recommandations.cy.js`)
+
+    - Affichage des recommandations pour un utilisateur connecté
+    - Message d'information si non connecté
+    - Gestion du menu hamburger
+
+  - Page Recommandations (`recommandation.cy.js`)
+    - Affichage de la liste de lieux recommandés
+    - Accès au formulaire d'ajout pour les utilisateurs connectés
+    - Redirection vers la page de connexion pour les utilisateurs non connectés
+    - Gestion du menu hamburger
+
+- **Lancer les tests de fonctionnalités :**
+  - Installer les dépendences : `npm install cypress` puis `npm install -g serve`
+  - Lancer le site dans un terminal : `serve .`
+  - Lancer Cypress dans un autre terminal : `npm run test`
+  - Sélectionner E2E Testing puis le navigateur de votre choix, et enfin cliquer sur les fichiers de test pour les exécuter
 
 ## Équipe
 - Loriana RATOVO
 - Laura DONATO
 - Maël CASTELLAN
 - Rémi DESJARDINS
-- Anne Laure PARQUET
+- Anne Laure PARGUET
 
 ---
 
