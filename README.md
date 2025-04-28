@@ -36,7 +36,7 @@ Le projet est déployé sur deux plateformes complémentaires :
 - JavaScript (Vanilla JS)
 - Node.js / Express.js
 - SQLite3
-- Hébergement : Render
+- Hébergement : Render et Vercel
 
 ## Structure du projet
 ```
@@ -114,7 +114,7 @@ Le projet est déployé sur deux plateformes complémentaires :
   - `main` : branche principale
 
 - **Convention de commit :**
-    - `git clone <url-du-depot>`: récupération d'un dépôt distant en local
+    - `git clone https://github.com/lo-riana/ubelicious-site.git`: récupération d'un dépôt distant en local
     - `git add <fichier>`: ajout de fichiers au staging area
     - `git add .`: ajout de tous les fichiers motifiés au staging area
     - `git commit -m "feat: ton message de commit"`: enregistrement des modifications avec un message
